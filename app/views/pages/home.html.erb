@@ -1,2 +1,10 @@
+<% if user_signed_in? %>
+    <p>You are signed in! Welcome <%= current_user.first_name %></p>
+    <%= link_to 'Sign out', destroy_user_session_path, method: :delete %>
+<% else %>
+    <%= link_to 'Register', new_user_registration_path %>
+    <%= link_to 'Sign In', new_user_session_path %>
+<% end %>
+
 <h1>Pages#home</h1>
 <p>Find me in app/views/pages/home.html.erb</p>
