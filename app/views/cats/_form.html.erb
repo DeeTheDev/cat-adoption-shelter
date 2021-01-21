@@ -1,0 +1,95 @@
+<%= form_for(cat) do |f| %>
+  <% if cat.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(cat.errors.count, "error") %> prohibited this cat from being saved:</h2>
+
+      <ul>
+      <% cat.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+    <div class="field">
+        <%= f.label :name %>
+        <%= f.text_field :name %>
+    </div>
+
+    <div class="field">
+        <%= f.label :gender %>
+        <%= f.label(:gender_Male, "Male") %>
+        <%= f.radio_button(:gender, "Male") %>
+        <%= f.label(:gender_Female, "Female") %>
+        <%= f.radio_button(:gender, "Female") %>
+    </div>
+    
+    <div class="field">
+        <%= f.label :age %>
+        <%= f.text_field :age %>
+    </div>
+
+    <div class="field">
+        <%= f.label :color %>
+        <%= f.text_field :color %>
+    </div>
+
+    <div class="field">
+        <%= f.label :breed %>
+        <%= f.text_field :breed %>
+    </div>
+
+    <div class="field">
+        <%= f.label :image_url %>
+        <%= f.text_field :image_url %>
+    </div>
+
+    <div class="field">
+        <%= f.label :description %>
+        <%= f.text_field :description %>
+    </div>
+
+    <div class="field">
+      <%= f.label :declawed, "Declawed?" %>
+      <%= f.radio_button(:declawed, "Yes") %>
+      <%= f.label(:declawed_yes, "Yes") %>
+      <%= f.radio_button(:declawed, "No") %>
+      <%= f.label(:declawed_no, "No") %>
+    </div>
+
+    <div class="field">
+      <%= f.label :good_with_cats, "Good with cats?" %>
+      <%= f.radio_button(:good_with_cats, "Yes") %>
+      <%= f.label(:good_with_cats_yes, "Yes") %>
+      <%= f.radio_button(:good_with_cats, "No") %>
+      <%= f.label(:good_with_cats_no, "No") %>
+      <%= f.radio_button(:good_with_cats, "Unknown") %>
+      <%= f.label(:good_with_cats_unknown, "Unknown") %>
+    </div>
+
+    <div class="field">
+      <%= f.label :good_with_dogs, "Good with dogs?" %>
+      <%= f.radio_button(:good_with_dogs, "Yes") %>
+      <%= f.label(:good_with_dogs_yes, "Yes") %>
+      <%= f.radio_button(:good_with_dogs, "No") %>
+      <%= f.label(:good_with_dogs_no, "No") %>
+      <%= f.radio_button(:good_with_dogs, "Unknown") %>
+      <%= f.label(:good_with_dogs_unknown, "Unknown") %>
+    </div>
+
+    <div class="field">
+      <%= f.label :special_needs, "Special Needs?" %>
+      <%= f.radio_button(:special_needs, "Yes") %>
+      <%= f.label(:special_needs_yes, "Yes") %>
+      <%= f.radio_button(:special_needs, "No") %>
+      <%= f.label(:special_needs_no, "No") %>
+      <%= f.radio_button(:special_needs, "Unknown") %>
+      <%= f.label(:special_needs_unknown, "Unknown") %>
+    </div>
+
+
+    <div class="actions">
+        <%= f.submit %>
+    </div>
+
+<% end %>

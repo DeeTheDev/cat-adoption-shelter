@@ -1,15 +1,16 @@
 class CreateCats < ActiveRecord::Migration[6.0]
   def change
     create_table :cats do |t|
+      t.string :name
       t.string :gender
       t.string :age
       t.string :color
-      t.boolean :good_with_cats
-      t.boolean :good_with_dogs
-      t.boolean :declawed
-      t.boolean :special_needs
       t.text :description
       t.string :image_url
+      t.string :good_with_cats
+      t.string :good_with_dogs
+      t.string :declawed
+      t.string :special_needs
 
       t.timestamps
       
