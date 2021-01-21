@@ -36,42 +36,55 @@ users = User.create([
 
 users = Cat.create([
   {
+    name: "Mikey",
     gender: "Male",
+    breed: "Unknown",
     age: "12 months",
     color: "White",
     image_url: "randomimage.com/url_path.jpg",
     description: "A wonder male cat just waiting on a new home.",
-    good_with_cats: true,
-    declawed: false,
-    special_needs: false
+    good_with_cats: "Unknown",
+    good_with_dogs: "Unknown",
+    declawed: "No",
+    special_needs: "No"
   },
   {
+    name: "Suzzy",
     gender: "Female",
     age: "11 months",
     color: "White",
+    breed: "Persian cat",
     image_url: "https://millscreek.vet/wp-content/uploads/2020/07/white-cat-with-blue-eyes-mobile-1024x616.jpg",
     description: "This kitty loves you, please adopt her!",
-    declawed: false,
-    special_needs: false
+    good_with_cats: "Yes",
+    good_with_dogs: "Unknown",
+    declawed: "No",
+    special_needs: "No"
   },
   {
+    name: "Bob",
     gender: "Male",
     age: "14 months",
     color: "Brown & White",
+    breed: "Birman",
     image_url: "https://d17fnq9dkz9hgj.cloudfront.net/uploads/2012/11/100901720-cat-adoption-first-30-days-632x475.jpg",
     description: "A wonder male cat just waiting on a new home.",
-    good_with_cats: true,
-    declawed: true,
-    special_needs: false
+    good_with_cats: "Yes",
+    good_with_dogs: "Unknown",
+    declawed: "Yes",
+    special_needs: "No"
   },
   {
+    name: "Speedy",
     gender: "Male",
     age: "12 months",
     color: "White",
+    breed: "Unknown"
     image_url: "randomimage.com/url_path.jpg",
     description: "A wonder male cat just waiting on a new home.",
-    good_with_cats: true,
-    declawed: false,
-    special_needs: false
+    good_with_cats: "Yes",
+    good_with_dogs: "Unknown",
+    declawed: "No",
+    special_needs: "No"
   },
 ])
