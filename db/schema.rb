@@ -10,10 +10,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_01_20_200238) do
+ActiveRecord::Schema.define(version: 2021_01_21_031800) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "cats", force: :cascade do |t|
+    t.string "gender"
+    t.string "age"
+    t.string "color"
+    t.boolean "good_with_cats"
+    t.boolean "good_with_dogs"
+    t.boolean "declawed"
+    t.boolean "special_needs"
+    t.text "description"
+    t.string "image_url"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.bigint "user_id"
+    t.index ["user_id"], name: "index_cats_on_user_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "first_name"
@@ -26,4 +42,5 @@ ActiveRecord::Schema.define(version: 2021_01_20_200238) do
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 
+  add_foreign_key "cats", "users"
 end
