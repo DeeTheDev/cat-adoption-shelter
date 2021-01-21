@@ -9,21 +9,69 @@
 
 users = User.create([
   {
+    first_name: "Dee",
+    last_name: "Vee"
     username: "user1",
     email: "user1@gmail.com",
     password: "12345678",
-    password_confirmation: "123456",
+    password_confirmation: "12345678",
   },
   {
+    first_name: "Steph",
+    last_name: "Dee"
     username: "user2",
     email: "user2@gmail.com",
     password: "12345678",
-    password_confirmation: "123456",
+    password_confirmation: "12345678",
   },
   {
+    first_name: "David",
+    last_name: "Herman"
     username: "user3",
     email: "user3@gmail.com",
     password: "12345678",
-    password_confirmation: "123456",
+    password_confirmation: "12345678",
   }
+])
+
+users = Cat.create([
+  {
+    gender: "Male",
+    age: "12 months",
+    color: "White",
+    image_url: "randomimage.com/url_path.jpg",
+    description: "A wonder male cat just waiting on a new home.",
+    good_with_cats: true,
+    declawed: false,
+    special_needs: false
+  },
+  {
+    gender: "Female",
+    age: "11 months",
+    color: "White",
+    image_url: "https://millscreek.vet/wp-content/uploads/2020/07/white-cat-with-blue-eyes-mobile-1024x616.jpg",
+    description: "This kitty loves you, please adopt her!",
+    declawed: false,
+    special_needs: false
+  },
+  {
+    gender: "Male",
+    age: "14 months",
+    color: "Brown & White",
+    image_url: "https://d17fnq9dkz9hgj.cloudfront.net/uploads/2012/11/100901720-cat-adoption-first-30-days-632x475.jpg",
+    description: "A wonder male cat just waiting on a new home.",
+    good_with_cats: true,
+    declawed: true,
+    special_needs: false
+  },
+  {
+    gender: "Male",
+    age: "12 months",
+    color: "White",
+    image_url: "randomimage.com/url_path.jpg",
+    description: "A wonder male cat just waiting on a new home.",
+    good_with_cats: true,
+    declawed: false,
+    special_needs: false
+  },
 ])
