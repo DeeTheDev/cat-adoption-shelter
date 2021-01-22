@@ -1,0 +1,24 @@
+<%= form_for(delivery) do |f| %>
+  <% if delivery.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(delivery.errors.count, "error") %> prohibited this delivery from being saved:</h2>
+
+      <ul>
+      <% delivery.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+    <div class="field">
+        <%= f.label :delivery_date %>
+        <%= f.hidden_field :cat_id, :value => @cat.id %>
+        <%= f.date_field :delivery_date, :min => Date.today + 7%>
+    </div>
+
+    <div class="actions">
+        <%= f.submit "Confirm Appointment"%>
+    </div>
+
+<% end %>
