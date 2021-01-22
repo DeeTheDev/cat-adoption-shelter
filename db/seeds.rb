@@ -9,43 +9,38 @@
 
 users = User.create([
   {
-    first_name: "Dee",
-    last_name: "Vee"
-    username: "user1",
+    first_name: "Junior",
+    last_name: "Wilmington",
     email: "user1@gmail.com",
     password: "12345678",
     password_confirmation: "12345678",
   },
   {
-    first_name: "Steph",
-    last_name: "Dee"
-    username: "user2",
+    first_name: "Stephanie",
+    last_name: "Hernandez",
     email: "user2@gmail.com",
-    password: "12345678",
-    password_confirmation: "12345678",
+    password: "12345678"
   },
   {
     first_name: "David",
-    last_name: "Herman"
-    username: "user3",
+    last_name: "Herman",
     email: "user3@gmail.com",
-    password: "12345678",
-    password_confirmation: "12345678",
+    password: "12345678"
   }
 ])
 
-users = Cat.create([
+cats = Cat.create([
   {
-    name: "Mikey",
-    gender: "Male",
-    breed: "Unknown",
-    age: "12 months",
+    name: "Rainbow",
+    gender: "Female",
+    breed: "Van Cat",
+    age: "14 months",
     color: "White",
-    image_url: "randomimage.com/url_path.jpg",
-    description: "A wonder male cat just waiting on a new home.",
+    image_url: "https://upload.wikimedia.org/wikipedia/commons/b/b1/VAN_CAT.png",
+    description: "She has impressive eyes that will draw you to adopt her. This cat deserves it all!",
     good_with_cats: "Unknown",
-    good_with_dogs: "Unknown",
-    declawed: "No",
+    good_with_dogs: "No",
+    declawed: "Yes",
     special_needs: "No"
   },
   {
@@ -62,7 +57,7 @@ users = Cat.create([
     special_needs: "No"
   },
   {
-    name: "Bob",
+    name: "Bobby",
     gender: "Male",
     age: "14 months",
     color: "Brown & White",
@@ -75,16 +70,16 @@ users = Cat.create([
     special_needs: "No"
   },
   {
-    name: "Speedy",
+    name: "Mittens",
     gender: "Male",
     age: "12 months",
     color: "White",
-    breed: "Unknown"
-    image_url: "randomimage.com/url_path.jpg",
+    breed: "Norwegian Forest Cat",
+    image_url: "https://upload.wikimedia.org/wikipedia/commons/b/b9/Mittens_the_cat_of_wellington.jpg",
     description: "A wonder male cat just waiting on a new home.",
     good_with_cats: "Yes",
     good_with_dogs: "Unknown",
-    declawed: "No",
+    declawed: "Yes",
     special_needs: "No"
   },
 ])
