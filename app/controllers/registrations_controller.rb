@@ -3,7 +3,8 @@ class RegistrationsController < Devise::RegistrationsController
     def create
         @user = User.new(user_params)
         if @user.save
-        render json: @user
+            @user.create_profile!
+            render json: @user
         else
         warden.custom_failure!
         render json: { error: 'signup error' }, status: :unprocessable_entity
