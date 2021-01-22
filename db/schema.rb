@@ -10,10 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_01_21_163240) do
+ActiveRecord::Schema.define(version: 2021_01_22_151923) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "appointments", force: :cascade do |t|
+    t.bigint "cat_id"
+    t.string "pickup_date"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["cat_id"], name: "index_appointments_on_cat_id"
+  end
 
   create_table "cats", force: :cascade do |t|
     t.string "name"
@@ -30,11 +38,20 @@ ActiveRecord::Schema.define(version: 2021_01_21_163240) do
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "user_id"
     t.string "breed"
+    t.string "available"
     t.index ["user_id"], name: "index_cats_on_user_id"
   end
 
+  create_table "deliveries", force: :cascade do |t|
+    t.bigint "cat_id"
+    t.string "delivery_date"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["cat_id"], name: "index_deliveries_on_cat_id"
+  end
+
   create_table "profiles", force: :cascade do |t|
-    t.bigint "user_id", null: false
+    t.bigint "user_id"
     t.string "street"
     t.string "street_2"
     t.string "city"
@@ -56,9 +73,12 @@ ActiveRecord::Schema.define(version: 2021_01_21_163240) do
     t.datetime "updated_at", precision: 6, null: false
     t.string "encrypted_password", default: "", null: false
     t.datetime "remember_created_at"
+    t.string "role", default: "user"
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 
+  add_foreign_key "appointments", "cats"
   add_foreign_key "cats", "users"
+  add_foreign_key "deliveries", "cats"
   add_foreign_key "profiles", "users"
 end
