@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_01_21_152040) do
+ActiveRecord::Schema.define(version: 2021_01_21_163240) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -33,6 +33,21 @@ ActiveRecord::Schema.define(version: 2021_01_21_152040) do
     t.index ["user_id"], name: "index_cats_on_user_id"
   end
 
+  create_table "profiles", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.string "street"
+    t.string "street_2"
+    t.string "city"
+    t.string "state"
+    t.integer "zip_code"
+    t.integer "tel_number"
+    t.integer "mobile_number"
+    t.string "of_age"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_profiles_on_user_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "first_name"
     t.string "last_name"
@@ -45,4 +60,5 @@ ActiveRecord::Schema.define(version: 2021_01_21_152040) do
   end
 
   add_foreign_key "cats", "users"
+  add_foreign_key "profiles", "users"
 end
