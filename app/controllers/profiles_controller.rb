@@ -9,7 +9,7 @@ class ProfilesController < ApplicationController
     def update
         if @profile.update(profile_params)
             flash.notice = "The profile was updated successfully."
-            redirect_to cats_path
+            redirect_to controller: 'deliveries', action: 'new', cat_id: params[:profile][:cat_id]
         else
             flash.now.alert = @profile.errors.full_messages.to_sentence
             render :edit
