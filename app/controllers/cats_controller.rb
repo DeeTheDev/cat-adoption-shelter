@@ -1,12 +1,11 @@
 class CatsController < ApplicationController
-    before_action :set_cat, only: [:show, :edit, :update, :destroy]
+    before_action :set_cat, only: [:show, :edit, :update, :destroy, :adopt, :pickup]
 
     def index
-        cats = Cat.all
+       @cats = Cat.all
     end
 
     def show
-
     end
 
     def new
@@ -14,6 +13,12 @@ class CatsController < ApplicationController
     end
 
     def edit
+    end
+
+    def adopt
+    end
+
+    def pickup
     end
 
     def create
@@ -27,8 +32,8 @@ class CatsController < ApplicationController
         end
     end
 
-
     def update
+
         if @cat.update(cat_params)
             flash.notice = "The cat was updated successfully."
             redirect_to @cat
@@ -49,7 +54,7 @@ class CatsController < ApplicationController
 
     def set_cat
         @cat = Cat.find(params[:id])
-      end
+    end
 
     def cat_params
         params.require(:cat).permit(:name, :age, :color, :breed, :gender, :good_with_cats, :good_with_dogs, :special_needs, :description, :declawed, :image_url)

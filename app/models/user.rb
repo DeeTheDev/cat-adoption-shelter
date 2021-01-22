@@ -6,4 +6,5 @@ class User < ApplicationRecord
 
   #associations
   has_many :cats, dependent: :destroy
+  has_one :profile
 end

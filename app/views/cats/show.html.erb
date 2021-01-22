@@ -7,7 +7,16 @@
 <img src=<%= @cat.image_url %> class="img-thumbnail" alt="cat_for_adoption">
 </p>
 
-<button>Adopt Me</button>
+
+<% if user_signed_in? %>
+    <p>
+        <a href="/cats/adopt/<%= @cat.id  %>">Adopt Me</a>
+    </p>
+<% else %>
+    <p>Please Sign In Or Register To Adopt</p>
+    <%= link_to 'Register', new_user_registration_path %>
+    <%= link_to 'Sign In', new_user_session_path %>
+<% end %>
 
 <h3>Hello! My name is <%= @cat.name %></h3>
 

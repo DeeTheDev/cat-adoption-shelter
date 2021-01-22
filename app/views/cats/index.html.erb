@@ -1,1 +1,23 @@
-Here live the cats
+<p id="notice"><%= notice %></p>
+
+<h1>All Cats</h1>
+
+<table>
+    <thead>
+        <tr>
+            <th>Name </th>
+            <th>Age</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% @cats.each do |cat| %>
+        <tr>
+            <td><%= cat.name %></td>
+            <td><%= cat.age %></td>
+            <td><%= link_to "Show", cat %></td>
+            <td><%= link_to "Edit", edit_cat_path(cat) %></td>
+            <td><%= link_to 'Destroy', cat, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+        <% end %>
+    </tbody>
+</table>

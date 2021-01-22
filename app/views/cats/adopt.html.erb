@@ -1,0 +1,10 @@
+<h1>#Choose Pickup or delivery for Cat: <%= @cat.name %></h1>
+<p>
+<img src=<%= @cat.image_url %> class="img-thumbnail" alt="cat_for_adoption">
+</p>
+<p>
+    <a href="/profiles/edit/<%= @cat.id  %>">Delivery Service</a>
+</p>
+<p>
+    <a href="/cats/pickup/<%= @cat.id  %>">Pickup</a>
+</p>
