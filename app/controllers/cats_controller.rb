@@ -1,5 +1,5 @@
 class CatsController < ApplicationController
-    before_action :set_cat, only: [:show, :edit, :update, :destroy, :adopt, :pickup]
+    before_action :set_cat, only: [:show, :edit, :update, :destroy, :adopt]
 
     def index
        @cats = Cat.all
@@ -18,9 +18,6 @@ class CatsController < ApplicationController
     def adopt
     end
 
-    def pickup
-    end
-
     def create
         @cat = Cat.new(cat_params)
         if @cat.save
@@ -33,7 +30,6 @@ class CatsController < ApplicationController
     end
 
     def update
-
         if @cat.update(cat_params)
             flash.notice = "The cat was updated successfully."
             redirect_to @cat
