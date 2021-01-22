@@ -1,0 +1,34 @@
+<%= render 'dashboard' %>
+
+<% if notice %>
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+        <%= notice %>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+<% end %>
+
+<h1>Cat History</h1>
+
+<% current_user.cats.each do |cat| %>
+    <p><%= cat.name %></p>
+    <%= cat.appointment.pickup_date %>
+    <a href="/dashboards/show/<%= cat.id  %>">Show Details</a>
+    <hr>
+
+    <div class="media">
+      <img src="<%= cat.name %>" class="mr-3" alt="Cat: <%= cat.name %>">
+      <div class="media-body">
+        <h5 class="mt-0"><%= cat.name %></h5>
+          <% if cat.appointment %>
+              <%= cat.name%> was scheduled for a pickup 
+              appointment on <%= cat.appointment.pickup_date %>
+            <% end %>
+            <% if cat.delivery %>
+              <p>Scheduled for a delivery</p>
+            <% end %>
+        <p>Cat description <%= cat.description %></p>
+      </div>
+    </div>
+<% end %>

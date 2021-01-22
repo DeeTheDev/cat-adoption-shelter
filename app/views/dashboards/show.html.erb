@@ -1,0 +1,11 @@
+<%= render 'dashboard' %>
+
+<h2><%= @cat.name %></h2>
+<% if @cat.appointment %>
+    <p>An appointment was setup for your cat:</p>
+    <p>Appointment Date</p>
+    <%= @cat.appointment.pickup_date%>
+<% end %>
+
+
+<p><%= link_to "Show Full Details", @cat %></p>
