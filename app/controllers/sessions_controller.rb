@@ -27,7 +27,7 @@ class SessionsController < Devise::SessionsController
     end
 
     def user_params
-        params.require(:user).permit(:email, :password)
+        params.require(:user).permit(:email, :password, :remember_me)
     end
 
 end
