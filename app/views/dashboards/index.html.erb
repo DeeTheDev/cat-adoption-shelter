@@ -1,5 +1,3 @@
-<%= render 'dashboard' %>
-
 <% if notice %>
     <div class="alert alert-success alert-dismissible fade show" role="alert">
         <%= notice %>
@@ -9,26 +7,37 @@
     </div>
 <% end %>
 
-<h1>Cat History</h1>
+<%= render 'dashboard' %>
+
+<%= link_to "Account Settings", edit_dashboard_path(current_user), :class => "btn btn-primary mb-4" %>
+<div class="card mb-4 bg-light">
+    <div class="card-body">
+      <h4>Your Cat Adoption History</h4>
+    </div>
+</div>
 
 <% current_user.cats.each do |cat| %>
-    <p><%= cat.name %></p>
-    <%= cat.appointment.pickup_date %>
-    <a href="/dashboards/show/<%= cat.id  %>">Show Details</a>
-    <hr>
-
     <div class="media">
-      <img src="<%= cat.name %>" class="mr-3" alt="Cat: <%= cat.name %>">
-      <div class="media-body">
+        <img src="<%= cat.image_url %>" class="img-thumbnail mr-4"
+                style="width: 250px; height: 30vw; object-fit: cover;" alt="cat_for_adoption">
+        <div class="media-body">
+
         <h5 class="mt-0"><%= cat.name %></h5>
-          <% if cat.appointment %>
+        <div class="card">
+          <div class="card-body">
+            <% if cat.appointment %>
               <%= cat.name%> was scheduled for a pickup 
               appointment on <%= cat.appointment.pickup_date %>
             <% end %>
             <% if cat.delivery %>
               <p>Scheduled for a delivery</p>
             <% end %>
-        <p>Cat description <%= cat.description %></p>
-      </div>
+          </div>
+        </div>
+
+      <a class="btn btn-primary mt-2" href="/dashboards/show/<%= cat.id  %>" role="button">Show Service Details</a>
+
     </div>
+  </div>
+    <hr>
 <% end %>
