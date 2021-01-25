@@ -12,13 +12,21 @@
   <% end %>
 
     <div class="field">
-        <%= f.label :delivery_date %>
         <%= f.hidden_field :cat_id, :value => @cat.id %>
-        <%= f.date_field :delivery_date, :min => Date.today + 7%>
+        <%= f.hidden_field :street, :value => current_user.profile.street %>
+        <%= f.hidden_field :street_2, :value =>  current_user.profile.street_2 %>
+        <%= f.hidden_field :city, :value =>  current_user.profile.city %>
+        <%= f.hidden_field :state, :value =>  current_user.profile.state %>
+        <%= f.hidden_field :zip_code, :value =>  current_user.profile.zip_code %>
+
+        <div class="form-group">
+          <%= f.label :delivery_date %>
+          <%=f.date_field :delivery_date, :min => Date.today + 7, :class => "form-control", :placeholder => "1234 Main St", :required => true%>
+        </div>
     </div>
 
     <div class="actions">
-        <%= f.submit "Confirm Appointment"%>
+        <%= f.submit "Confirm Appointment", :class=>"btn btn-primary" %>
     </div>
 
 <% end %>
