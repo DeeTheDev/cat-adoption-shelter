@@ -16,6 +16,10 @@
             </li>
             </ul>
             <div class="d-flex">
+                <% if current_user && current_user.role === "staff" %>
+                    <%= link_to 'Staff Panel', users_path, :class => "btn btn-primary btn-md mx-1" %>
+
+                <% end %>
                 <% if user_signed_in? %>
                     <%= link_to 'Dashboard', dashboards_path, :class => "btn btn-primary btn-md mx-1" %>
                     <%= link_to 'Logout', destroy_user_session_path, :class => "btn btn-primary btn-md mx-1", method: :delete  %>
