@@ -9,28 +9,44 @@
 
 users = User.create([
   {
-    first_name: "Junior",
-    last_name: "Wilmington",
-    email: "user1@gmail.com",
-    password: "12345678",
-    password_confirmation: "12345678",
+    id: 1,
+    first_name: "Denilson",
+    last_name: "Velasquez",
+    email: "admin@gmail.com",
+    password: "password",
+    role: "staff"
   },
   {
-    first_name: "Stephanie",
-    last_name: "Hernandez",
+    id: 2,
+    first_name: "Nathalie",
+    last_name: "Clinton",
     email: "user2@gmail.com",
-    password: "12345678"
+    password: "password",
   },
   {
-    first_name: "David",
-    last_name: "Herman",
+    id: 3,
+    first_name: "James",
+    last_name: "Hamilton",
     email: "user3@gmail.com",
-    password: "12345678"
-  }
+    password: "password",
+  },
+])
+
+profiles = Profile.create([
+  {
+    user_id: 1,
+  },
+  {
+    user_id: 2,
+  },
+  {
+    user_id: 3,
+  },
 ])
 
 cats = Cat.create([
   {
+    id:1,
     name: "Rainbow",
     gender: "Female",
     breed: "Van Cat",
@@ -40,10 +56,12 @@ cats = Cat.create([
     description: "She has impressive eyes that will draw you to adopt her. This cat deserves it all!",
     good_with_cats: "Unknown",
     good_with_dogs: "No",
-    declawed: "Yes",
-    special_needs: "No"
+    declawed: "No",
+    special_needs: "No",
+    available: "Available"
   },
   {
+    id: 2,
     name: "Suzzy",
     gender: "Female",
     age: "11 months",
@@ -54,9 +72,11 @@ cats = Cat.create([
     good_with_cats: "Yes",
     good_with_dogs: "Unknown",
     declawed: "No",
-    special_needs: "No"
+    special_needs: "No",
+    available: "Available"
   },
   {
+    id: 3,
     name: "Bobby",
     gender: "Male",
     age: "14 months",
@@ -66,10 +86,12 @@ cats = Cat.create([
     description: "A wonder male cat just waiting on a new home.",
     good_with_cats: "Yes",
     good_with_dogs: "Unknown",
-    declawed: "Yes",
-    special_needs: "No"
+    declawed: "No",
+    special_needs: "No",
+    available: "Available"
   },
   {
+    id: 4,
     name: "Mittens",
     gender: "Male",
     age: "12 months",
@@ -79,7 +101,8 @@ cats = Cat.create([
     description: "A wonder male cat just waiting on a new home.",
     good_with_cats: "Yes",
     good_with_dogs: "Unknown",
-    declawed: "Yes",
-    special_needs: "No"
+    declawed: "No",
+    special_needs: "No",
+    available: "Available"
   },
 ])
