@@ -7,12 +7,12 @@ class ProfilesController < ApplicationController
     end
 
     def update
+        cat_id_path = params[:profile][:cat_id]
         if @profile.update(profile_params)
             flash.notice = "The profile was updated successfully."
-            redirect_to controller: 'deliveries', action: 'new', cat_id: params[:profile][:cat_id]
+            redirect_to controller: 'deliveries', action: 'new', cat_id: cat_id_path
         else
-            flash.now.alert = @profile.errors.full_messages.to_sentence
-            render :edit
+            redirect_to controller: 'profiles', action: 'edit', cat_id: cat_id_path, flash: {errors: @profile.errors.full_messages.to_sentence}
         end
     end
 
@@ -23,6 +23,6 @@ class ProfilesController < ApplicationController
     end
     
     def profile_params
-        params.require(:profile).permit(:user_id, :street, :street_2, :city, :state, :zip_code, :tel_number, :mobile_number, :of_age)
+        params.require(:profile).permit(:user_id, :street, :street_2, :city, :state, :zip_code, :tel_number, :mobile_number)
     end
 end
