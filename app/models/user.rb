@@ -5,6 +5,6 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   #associations
-  has_many :cats, dependent: :destroy
+  has_many :cats
   has_one :profile, dependent: :destroy
 end
