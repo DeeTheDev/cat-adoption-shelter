@@ -1,5 +1,98 @@
-#This is where you will setup Appointment for cat, after choosing Pickup service
+<%= render 'cats/header' %>
+
 <h1>Pickup Service</h1>
-<p>For cat <%= @cat.name %></p>
-<p>Choose a Date</p>
-<%= render 'form', appointment: @appointment %>
+<% if user_signed_in? %>
+    <div class="row">
+        <div class="col">
+            <h4>You are adopting <%= @cat.name %>!</h4>
+            <p>
+                <img src=<%= @cat.image_url %> class="img-thumbnail"
+                    style="width: 100%; height: 30vw; object-fit: cover;" alt="cat_for_adoption">
+            </p>
+            <h4>Cat Statistics</h4>
+
+            <table class="table table-striped table-bordered">
+                <tbody>
+                    <tr>
+                        <td>
+                            <strong>Gender</strong>
+                        </td>
+                        <td>
+                            <%= @cat.gender %>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <strong>Age</strong>
+                        </td>
+                        <td>
+                            <%= @cat.age %>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <strong>Breed</strong>
+                        </td>
+                        <td>
+                            <%= @cat.breed %>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <strong>Color</strong>
+                        </td>
+                        <td>
+                            <%= @cat.color %>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <strong>Good with Cats?</strong>
+                        </td>
+                        <td>
+                            <%= @cat.good_with_cats %>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <strong>Good with Dogs?</strong>
+                        </td>
+                        <td>
+                            <%= @cat.good_with_dogs %>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <strong>Declawed</strong>
+                        </td>
+                        <td>
+                            <%= @cat.declawed %>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <strong>Special Needs</strong>
+                        </td>
+                        <td>
+                            <%= @cat.special_needs %>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="col">
+                <h5>Pickup Location (Cat Adoption Shelter):</h5>
+                90002 Fake Street<br>
+                Durham, North Carolina 27709
+                <hr>
+                <h5>Confirm Pickup Date:</h5>
+            <%= render 'form', appointment: @appointment %>
+        </div>
+    </div>
+
+
+<% else %>
+    <p>Please sign in before adopting <%= @cat.name %></p>
+    <%= link_to 'Register', new_user_registration_path %>
+    <%= link_to 'Sign In', new_user_session_path %>
+<% end %>
