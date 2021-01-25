@@ -18,10 +18,10 @@
 
     <div class="field">
         <%= f.label :gender %>
-        <%= f.label(:gender_Male, "Male") %>
         <%= f.radio_button(:gender, "Male") %>
-        <%= f.label(:gender_Female, "Female") %>
+        <%= f.label(:gender_male, "Male") %>
         <%= f.radio_button(:gender, "Female") %>
+        <%= f.label(:gender_female, "Female") %>
     </div>
     
     <div class="field">
@@ -55,6 +55,8 @@
       <%= f.label(:declawed_yes, "Yes") %>
       <%= f.radio_button(:declawed, "No") %>
       <%= f.label(:declawed_no, "No") %>
+      <%= f.radio_button(:declawed, "Unknown") %>
+      <%= f.label(:declawed_unknown, "Unknown") %>
     </div>
 
     <div class="field">
