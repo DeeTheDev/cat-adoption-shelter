@@ -1,0 +1,47 @@
+<%= render 'dashboard' %>
+<% if notice %>
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+        <%= notice %>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+<% end %>
+
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><%= link_to "Dashboard", dashboards_path %></li>
+    <li class="breadcrumb-item active" aria-current="page">Account Settings</li>
+  </ol>
+</nav>
+
+<div class="card mb-4 bg-light">
+    <div class="card-body">
+      <h4>Account Settings</h4>      
+    </div>
+</div>
+
+<div class="row">
+  <div class="col-4">
+    <div class="list-group" id="list-tab" role="tablist">
+      <a class="list-group-item list-group-item-action active" id="list-user-list" data-toggle="list" href="#list-user" role="tab" aria-controls="user">Personal Information</a>
+      <a class="list-group-item list-group-item-action" id="list-profile-list" data-toggle="list" href="#list-profile" role="tab" aria-controls="profile">Profile Information</a>
+      <a class="list-group-item list-group-item-action" id="list-deactivate-list" data-toggle="list" href="#list-deactivate" role="tab" aria-controls="deactivate">Deactivate Account</a>
+    </div>
+  </div>
+  <div class="col-8">
+    <div class="tab-content" id="nav-tabContent">
+      <div class="tab-pane fade show active" id="list-user" role="tabpanel" aria-labelledby="list-user-list">
+        <%= render 'user_form', user: current_user %>
+      </div>
+      <div class="tab-pane fade" id="list-profile" role="tabpanel" aria-labelledby="list-profile-list">
+        <%= render 'form', profile: current_user.profile  %>
+      </div>
+      <div class="tab-pane fade" id="list-deactivate" role="tabpanel" aria-labelledby="list-deactivate-list">
+        <h5>Deactivate Account</h5>
+        <p>Your account information and pet information will be deleted.</p>
+        <%= link_to 'Delete Account', destroy_account_path(current_user), method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger" %>
+      </div>
+    </div>
+  </div>
+</div>
