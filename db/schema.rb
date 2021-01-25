@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_01_22_151923) do
+ActiveRecord::Schema.define(version: 2021_01_23_124118) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -47,6 +47,11 @@ ActiveRecord::Schema.define(version: 2021_01_22_151923) do
     t.string "delivery_date"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "street"
+    t.string "street_2"
+    t.string "city"
+    t.string "state"
+    t.integer "zip_code"
     t.index ["cat_id"], name: "index_deliveries_on_cat_id"
   end
 
@@ -57,9 +62,8 @@ ActiveRecord::Schema.define(version: 2021_01_22_151923) do
     t.string "city"
     t.string "state"
     t.integer "zip_code"
-    t.integer "tel_number"
-    t.integer "mobile_number"
-    t.string "of_age"
+    t.string "tel_number"
+    t.string "mobile_number"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_profiles_on_user_id"
@@ -77,8 +81,7 @@ ActiveRecord::Schema.define(version: 2021_01_22_151923) do
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 
-  add_foreign_key "appointments", "cats"
-  add_foreign_key "cats", "users"
-  add_foreign_key "deliveries", "cats"
+  add_foreign_key "appointments", "cats", on_delete: :cascade
+  add_foreign_key "deliveries", "cats", on_delete: :cascade
   add_foreign_key "profiles", "users"
 end
