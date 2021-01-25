@@ -1,10 +1,24 @@
-<h1>#Choose Pickup or delivery for Cat: <%= @cat.name %></h1>
-<p>
-<img src=<%= @cat.image_url %> class="img-thumbnail" alt="cat_for_adoption">
-</p>
-<p>
-    <a href="/profiles/edit/<%= @cat.id  %>">Delivery Service</a>
-</p>
-<p>
-    <a href="/appointment/new/<%= @cat.id  %>">Pickup</a>
-</p>
+<%= render 'header' %>
+<div class="card mb-4 bg-light">
+    <div class="card-body">
+                <h5>Cat Adoption Shelter provides two options for adoption, Pickup and Delivery</h5>
+    </div>
+</div>
+<div class="row">
+    <div class="col">
+        <h4>You chose <%= @cat.name %> for adoption.</h4>
+        <p>
+            <img src=<%= @cat.image_url %> class="img-thumbnail"
+                style="width: 100%; height: 30vw; object-fit: cover;" alt="cat_for_adoption">
+        </p>
+    </div>
+    <div class="col">
+        <h4>Choose Service</h4>
+        <p>
+            <a href="/profiles/edit/<%= @cat.id  %>" class="btn btn-success w-100" role="button">Delivery Service</a>
+        </p>
+        <p>
+            <a href="/appointment/new/<%= @cat.id  %>" class="btn btn-success w-100" role="button">Pickup Service</a>
+        </p>
+    </div>
+  </div>

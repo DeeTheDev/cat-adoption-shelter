@@ -11,54 +11,46 @@
     </div>
   <% end %>
     
-  <%= f.hidden_field :cat_id, :value => @cat.id %>
-
-  <div class="field">
-    <%= f.label :street %>
-    <%= f.text_field :street, :value => current_user.profile.street%>
+    <%= f.hidden_field :cat_id, :value => @cat.id %>
+  <div class="form-group">
+    <%= f.label :street, "Address" %>
+    <%= f.text_field :street, :value => current_user.profile.street, :class => "form-control", :placeholder => "1234 Main St",:required => true%>
   </div>
-
-  <div class="field">
-    <%= f.label :street_2 %>
-    <%= f.text_field :street_2, :value => current_user.profile.street_2 %>
+  <div class="form-group">
+      <%= f.label :street_2, "Address 2" %>
+      <%= f.text_field :street_2, :value => current_user.profile.street_2, :class =>"form-control", :placeholder=>"Apartment, studio, or floor"%>
   </div>
-
-  <div class="field">
-    <%= f.label :city %>
-    <%= f.text_field :city, :value => current_user.profile.city %>
-  </div>
-
-  <div class="field">
-    <%= f.label :state %>
-    <%= select_tag(:state, options_for_select([ 
-          ['NC'], ['DC']
-        ], current_user.profile.state))
+  <div class="form-row">
+    <div class="form-group col-md-6">
+        <%= f.label :city %>
+        <%= f.text_field :city, :value => current_user.profile.city, :class=> "form-control",:required => true%>
+    </div>
+    <div class="form-group col-md-4">
+        <%= f.label :state %>
+        <%= f.select :state, options_for_select(["NC", "DC"], 
+          current_user.profile.state ? current_user.profile.state : "NC"),
+          {}, {required: 'true', autofocus: 'true', class: 'form-control'}
         %>
-  </div>
 
-  <div class="field">
-    <%= f.label :zip_code %>
-    <%= f.text_field :zip_code, :value => current_user.profile.zip_code %>
+    </div>
+    <div class="form-group col-md-2">
+        <%= f.label :zip_code %>
+        <%= f.text_field :zip_code, :value => current_user.profile.zip_code, :class=>"form-control",:required => true %>
+    </div>
   </div>
-
-  <div class="field">
-    <%= f.label :tel_number %>
-    <%= f.telephone_field :tel_number, :value => current_user.profile.tel_number %>
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <%= f.label :tel_number %>
+      <%= f.telephone_field :tel_number, :value => current_user.profile.tel_number, :class=> "form-control",:required => true %>
+    </div>
+    <div class="form-group col-md-6">
+      <%= f.label :mobile_number %>
+      <%= f.telephone_field :mobile_number, :value => current_user.profile.mobile_number, :class=> "form-control",:required => true %>
+    </div>
   </div>
-
-  <div class="field">
-    <%= f.label :mobile_number %>
-    <%= f.telephone_field :mobile_number, :value => current_user.profile.mobile_number %>
-  </div>
-
-  <div class="field">
-    <%= f.label :of_age %>
-    <%= f.text_field :of_age, :value => current_user.profile.of_age %>
-  </div>
-
 
   <div class="actions">
-    <%= f.submit "Update profile and continue" %>
+    <%= f.submit "Update profile and continue", :class=>"btn btn-primary" %>
   </div>
 
 <% end %>
