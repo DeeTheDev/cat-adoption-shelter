@@ -6,6 +6,13 @@ class ApplicationController < ActionController::Base
   
   protected
 
+  def is_user_staff
+      unless current_user && current_user.role === "staff"
+        flash.notice = "You must be a staff member to access this page, please login."
+        redirect_to pages_path
+      end
+  end
+
   def configure_permitted_parameters
     devise_parameter_sanitizer.permit(:sign_up, keys: [:first_name, :last_name])
 
