@@ -1,4 +1,5 @@
 class CatsController < ApplicationController
+    before_action :is_user_staff, only: [:new]
     before_action :set_cat, only: [:show, :edit, :update, :destroy, :adopt]
 
     def index
@@ -53,6 +54,6 @@ class CatsController < ApplicationController
     end
 
     def cat_params
-        params.require(:cat).permit(:name, :age, :color, :breed, :gender, :good_with_cats, :good_with_dogs, :special_needs, :description, :declawed, :image_url)
+        params.require(:cat).permit(:name, :age, :color, :breed, :gender, :good_with_cats, :good_with_dogs, :special_needs, :description, :declawed, :image_url, :available)
     end
 end
