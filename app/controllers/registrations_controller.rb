@@ -4,10 +4,10 @@ class RegistrationsController < Devise::RegistrationsController
         @user = User.new(user_params)
         if @user.save
             @user.create_profile!
-            render json: @user
+            redirect_to pages_path
         else
-        warden.custom_failure!
-        render json: { error: 'signup error' }, status: :unprocessable_entity
+            warden.custom_failure!
+            redirect_to pages_path
         end
     end
 
@@ -15,19 +15,19 @@ class RegistrationsController < Devise::RegistrationsController
         @user = User.find_by_email(user_params[:email])
 
         if @user.update_attributes(user_params)
-        render json: @user
+            redirect_to pages_path
         else
-        warden.custom_failure!
-        render :json=> @user.errors, :status=>422
+            warden.custom_failure!
+            redirect_to pages_path
         end
     end
 
     def destroy
         @user = User.find_by_email(user_params[:email])
         if @user.destroy
-        render :json=> { success: 'user was successfully deleted' }, :status=>201
+            redirect_to pages_path
         else
-        render :json=> { error: 'user could not be deleted' }, :status=>422
+            redirect_to pages_path
         end
     end
 
