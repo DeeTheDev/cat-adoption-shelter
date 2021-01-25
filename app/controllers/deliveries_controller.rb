@@ -25,6 +25,6 @@ class DeliveriesController < ApplicationController
     private
 
     def appointment_params
-        params.require(:delivery).permit(:cat_id, :delivery_date)
+        params.require(:delivery).permit(:cat_id, :delivery_date, :street, :street_2, :city, :state, :zip_code)
     end
 end
