@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<h1>User</h1>
+<h2>User</h2>
 <p>
     <strong>User ID</strong>
     <%= @user.first_name%>
@@ -15,11 +15,21 @@
 </p>
 
 <p>
-    <strong>ID</strong>
-<%= @user.profile.id%>
-<%= @user.profile.street%>
-<%= @user.profile.street_2%>
-<%= @user.profile.city%>
+    <strong>User Profile Address</strong>
+    <%= @user.profile.street%>
+    <%= @user.profile.street_2%>
+    <%= @user.profile.city%>
+    <%= @user.profile.state%>
+</p>
+<p>
+    <h2>User's Cats</h2>
+    <% @user.cats.each do |cat|  %>
+        <h4><%= cat.name %></h4>
+        <img src="<%= cat.image_url %>" class="img-thumbnail"
+            style="width: 50px; height: 50px; object-fit: cover;" alt="cat_for_adoption">
+        <a class="btn btn-primary mt-2" href="/dashboards/show/<%= cat.id  %>" role="button">Show</a>
+    <% end %>
+
 </p>
 
 <%= link_to 'Edit', edit_user_path(@user) %> |
